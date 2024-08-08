@@ -20,10 +20,10 @@ class YOLOv10(Model, PyTorchModelHubMixin, model_card_template=card_template_tex
 
     def init_efficientnet_backbone(self):
         # Contoh: Mengganti backbone model dengan EfficientNet
-        from torchvision.models import efficientnet_b0, EfficientNet_B0_Weights
+        from torchvision.models import efficientnet_b7, EfficientNet_B0_Weights
         
         # Memuat model EfficientNet yang sudah pre-trained
-        efficientnet = efficientnet_b0(weights=EfficientNet_B0_Weights.IMAGENET1K_V1)
+        efficientnet = efficientnet_b7(weights=EfficientNet_B0_Weights.IMAGENET1K_V1)
         
         # Mengganti backbone CSPDarknet dengan EfficientNet
         self.model.backbone = efficientnet.features
